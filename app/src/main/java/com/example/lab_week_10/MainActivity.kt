@@ -1,38 +1,27 @@
-package com.example.lab_week_10
+package com.example.lab_week_10   // <- sesuaikan dengan package project lu, cek di baris paling atas sebelumnya
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var textTotal: TextView
-    private lateinit var buttonPressMe: Button
-
-    // ViewModel supaya total nggak reset saat rotate
-    private val viewModel: TotalViewModel by lazy {
-        ViewModelProvider(this)[TotalViewModel::class.java]
-    }
+    private var counter = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        textTotal = findViewById(R.id.text_total)
-        buttonPressMe = findViewById(R.id.button_press_me)
+        val tvCounterTop = findViewById<TextView>(R.id.tvCounterTop)
+        val tvCounterBottom = findViewById<TextView>(R.id.tvCounterBottom)
+        val btnPressMe = findViewById<Button>(R.id.btnPressMe)
 
-        // set tampilan awal dari ViewModel
-        updateTotalText(viewModel.total)
-
-        buttonPressMe.setOnClickListener {
-            val newTotal = viewModel.incrementTotal()
-            updateTotalText(newTotal)
+        btnPressMe.setOnClickListener {
+            counter++
+            val text = "Total: $counter"
+            tvCounterTop.text = text
+            tvCounterBottom.text = text
         }
-    }
-
-    private fun updateTotalText(value: Int) {
-        textTotal.text = "Total: $value"
     }
 }

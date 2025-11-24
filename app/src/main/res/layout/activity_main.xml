@@ -1,54 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#191A1F"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <!-- Total atas -->
     <TextView
-        android:id="@+id/tvCounterTop"
+        android:id="@+id/text_total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total: 0"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:text="@string/text_total"
+        android:textSize="32sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnPressMe"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="20dp"/>
 
-    <!-- Tombol -->
-    <Button
-        android:id="@+id/btnPressMe"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_increment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Press Me"
-        android:backgroundTint="#C3A6FF"
-        android:textColor="#000000"
-        app:layout_constraintTop_toBottomOf="@id/tvCounterTop"
-        app:layout_constraintBottom_toTopOf="@id/tvCounterBottom"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:text="@string/button_increment"/>
 
-    <!-- Total bawah -->
-    <TextView
-        android:id="@+id/tvCounterBottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total: 0"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/btnPressMe"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:name="com.example.lab_week_10.FirstFragment"/>
+</LinearLayout>

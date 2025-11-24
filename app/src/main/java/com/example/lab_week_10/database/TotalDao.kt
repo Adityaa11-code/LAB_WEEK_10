@@ -1,15 +1,16 @@
 package com.example.lab_week_10.database
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 
 @Dao
 interface TotalDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(total: Total)
+    suspend fun insert(total: Total)
 
-    @Update
-    fun update(total: Total)
-
-    @Query("SELECT * FROM total WHERE id = :id")
-    fun getTotal(id: Long): List<Total>
+    @Query("SELECT * FROM total_table WHERE id = 1")
+    suspend fun getTotal(): Total?
 }

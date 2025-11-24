@@ -5,11 +5,11 @@
     android:padding="20dp">
 
     <TextView
-        android:id="@+id/text_fragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fragment Total: 0"
-        android:textStyle="bold"
-        android:textSize="24sp"/>
+        android:id="@+id/textFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="This is Fragment Page"
+        android:gravity="center"
+        android:textSize="22sp"/>
 
 </FrameLayout>
